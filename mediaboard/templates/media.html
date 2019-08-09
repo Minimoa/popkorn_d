@@ -10,6 +10,12 @@
                         }
                 });
 
+                $("a[pop_nm='media_write']").click(function(){
+                        $("input[name='category_']").hide();
+                        $("select").show();
+
+                });
+
                 $(".tag").click(function(){
                         location.href="?search="+$(this).text().replace(")","");
                 });
@@ -18,7 +24,7 @@
 </script>
 <section id="media">
         {% if user.is_authenticated %} 
-        <a href="#" class="btn purple right popup_open" pop_nm="media_write">WRITE</a>
+        <a class="btn purple right popup_open" pop_nm="media_write">WRITE</a>
         {%endif%}
         {% for m in page_posts%}
         <article>
