@@ -177,17 +177,22 @@
             
             {% else %}
             <a href="#" class="btn popup_open" pop_nm="login">LOGIN</a>
-            <a id="slide_open" class="right" >MENU</a>
             {% endif %}  
-             
+            <a id="slide_open" class="right" >MENU</a>
         </header>    
         {% block layoutblock %}
         {% endblock %}    
 
          <ul no="3"> 
                 <li><a href="#slide_close" class="right">X</a></li>
-                <li><a href="#" class="popup_open" pop_nm="login">LOGIN</a></li>
                 {% if user.is_authenticated %} 
+                <li>
+                    <P>
+                        welcome &nbsp;&nbsp; 
+                        <b>{{user.username}}</b>
+                        <a href="#" class="msg_total">5</a>
+                    </P> 
+                </li>
                 <li>
                     <a href="#logout_">LOGOUT</a>
                     <form action="{% url 'logout'%}" method="post" id="logout_">
@@ -195,10 +200,12 @@
                         <input type="hidden" name="red_path" class="red_path">
                     </form>
                 </li>
+                {%else%}
+                <li><a href="#" class="popup_open" pop_nm="login">LOGIN</a></li>
                 {%endif%}
                 <li><a href="#" class="forbidden">MESSAGE</a></li>
-                <li><a href="/news" class="nav_active forbidden">NEWS</a></li>
-                <li><a href="/chart" class="forbidden" >CHART</a></li>
+                <li><a href="/news" class="nav_active">NEWS</a></li>
+                <li><a href="" class="forbidden" >CHART</a></li>
                 <li><a href="/mediaboard">MEDIA</a></li>
                 <li><a href="/calendar" class="forbidden">CALENDAR</a></li>
                 <li><a href="/community" >COMMUNITY</a></li>
