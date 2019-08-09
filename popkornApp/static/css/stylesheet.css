@@ -813,11 +813,10 @@ header ul[no="1"] a:hover, .nav_active{
     }
     header p{
         float:right;
-        width:20%;
+        width:30%;
         margin-top:-0.8%;
     }
-    header ul[no="3"]{
-        display:block;
+    header ul[no="3"]{ 
         width:40%;
         padding:10px 50px 0px 0px;
         position: absolute;
@@ -825,6 +824,9 @@ header ul[no="1"] a:hover, .nav_active{
         right:0; 
         height:700px;
         background: #ffffff;
+    }
+    header a[pop_nm="login"]{
+        margin-top:30px;
     }
     header ul[no="3"] li{
         display: block;
@@ -836,10 +838,20 @@ header ul[no="1"] a:hover, .nav_active{
     header ul[no="3"] li .right{
         margin-top:-10px;
     }
-    #index article{
-        display: block;
+    #index article p{
+        width:80%;
     }
     #index article div{
         display: inline-block;
+        width:80%;
+        margin:auto;
     }
+    .pop_up{
+        width:50%
+     }
+     #index article:nth-child(3){
+         padding:50px 10px;
+         width:80%;
+         margin:auto;
+     }
 }

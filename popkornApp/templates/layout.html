@@ -53,6 +53,7 @@
 
                 //로그아웃
                 $("a[href='#logout'").click(function(){
+                    $("ul[no='3']").hide();
                     if(confirm("Really want to leave?")){
                         $("#logout").submit();
                     }
