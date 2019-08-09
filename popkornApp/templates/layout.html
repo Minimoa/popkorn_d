@@ -41,6 +41,8 @@
 
                 //로그인 팝업 
                 $(".popup_open").click(function(){
+                    $("#sign_in").show();
+                    $("#sign_up").hide();
                     $("ul[no='3']").hide();
                     var window = $(this).attr("pop_nm");
                     $(".bg").show();
