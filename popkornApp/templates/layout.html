@@ -192,6 +192,7 @@
         {% endblock %}    
 
          <ul no="3">  
+                <li><a href="#slide_close" class="right">X</a></li>
                 {% if user.is_authenticated %} 
                 <li>
                     <P>
@@ -199,7 +200,6 @@
                         <b>{{user.username}}</b>
                         <a href="#" class="msg_total">5</a>
                     </P> 
-                    <a href="#slide_close" class="right">X</a>
                 </li>
                 <li>
                     <a href="#logout" class="logout">LOGOUT</a>
