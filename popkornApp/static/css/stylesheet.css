@@ -96,6 +96,9 @@ header ul[no="2"] li a{
 header ul[no="2"] li:hover{
     background: #f1f1f1;
 }
+ul[no="3"]{
+    display: none;
+}
 header strong{
     float:left;
     margin-left:50px;
@@ -385,7 +388,7 @@ header ul[no="1"] a:hover, .nav_active{
     color:#5e52a1;
 }
 #index ul[no='3']{
-    display:none;
+    display:block;
 }
 .list_no{
     font-size: 0.8em;
@@ -806,9 +809,15 @@ header ul[no="1"] a:hover, .nav_active{
         float: none;
     }
 }
-
+#slide_open{
+    display: none;
+}
 /********************* 모바일 ***************************/
 @media(max-width:800px){   
+    #slide_open{
+        display: block;
+        margin-right: 20px;
+    }
     header,#index{
         overflow-x:hidden;
     }
@@ -820,26 +829,30 @@ header ul[no="1"] a:hover, .nav_active{
         width:30%;
         margin-top:-0.8%;
     }
-    header ul[no="3"]{ 
+    header ul[no="2"]{
+        display: none;
+    }
+    
+    header a[pop_nm="login"]{
+        display: none;
+    }
+    ul[no="3"]{ 
         width:40%;
         padding:10px 50px 0px 0px;
         position: absolute;
-        top:50px;
+        top:30px;
         right:0; 
-        height:700px;
+        height:200%;
         background: #ffffff;
     }
-    header a[pop_nm="login"]{
-        margin-top:-5px;
-    }
-    header ul[no="3"] li{
+    ul[no="3"] li{
         display: block;
         width:100%;
         padding:15px;
         border-bottom: 1px solid #eeeeee;
         background: #ffffff;
     } 
-    header ul[no="3"] li .right{
+    ul[no="3"] li .right{
         margin-top:-10px;
     } 
     .pop_up{
@@ -849,6 +862,7 @@ header ul[no="1"] a:hover, .nav_active{
         top:5%;
         left:7%;
      }
+   
      #index article:nth-child(2){
          display: block;
          padding:0px;
@@ -880,4 +894,7 @@ header ul[no="1"] a:hover, .nav_active{
          width:80%;
          display: block;
      }
+     #index a[href='#slide_open']{
+        display: block;
+    }
 }

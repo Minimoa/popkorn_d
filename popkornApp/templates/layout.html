@@ -73,10 +73,15 @@
                         alert("비공개된 메뉴입니다.");
                         location.href=""; 
                 });
-                // pc 일때  로그아웃 메뉴 팝업  
-                console.log(chk_device());
-                if(chk_device() == "pc"){
-                    $("ul[no='3']").hide();
+
+                $("#slide_open").click(function(){
+                    $("ul[no='3']").show();
+                });
+                $("a[href='#slide_close']").click(function(){
+                        $("ul[no='3']").hide();
+                });
+                 
+                // pc 일때  로그아웃 메뉴 팝업    
                     $("header>p").hover(function(){ 
                         $("ul[no='2']").show();
                     },function(){
@@ -88,16 +93,7 @@
                             $(this).hide();
                         });
                     });
-                }else{
-                    $("header>p").click(function(){
-                        $("ul[no='3']").show();
-                    });
-                    $("a[href='#slide_close']").click(function(){
-                        $("ul[no='3']").hide();
-                    });
-
-                   
-                } 
+                
             });
              
         </script> 
@@ -177,8 +173,21 @@
                     <a href="#" class="forbidden">MESSAGE</a>
                 </li>
             </ul>
-            <ul no="3"> 
+           
+            
+            {% else %}
+            <a href="#" class="btn popup_open" pop_nm="login">LOGIN</a>
+            <a id="slide_open" class="right" >MENU</a>
+            {% endif %}  
+             
+        </header>    
+        {% block layoutblock %}
+        {% endblock %}    
+
+         <ul no="3"> 
                 <li><a href="#slide_close" class="right">X</a></li>
+                <li><a href="#" class="popup_open" pop_nm="login">LOGIN</a></li>
+                {% if user.is_authenticated %} 
                 <li>
                     <a href="#logout_">LOGOUT</a>
                     <form action="{% url 'logout'%}" method="post" id="logout_">
@@ -186,6 +195,7 @@
                         <input type="hidden" name="red_path" class="red_path">
                     </form>
                 </li>
+                {%endif%}
                 <li><a href="#" class="forbidden">MESSAGE</a></li>
                 <li><a href="/news" class="nav_active forbidden">NEWS</a></li>
                 <li><a href="/chart" class="forbidden" >CHART</a></li>
@@ -193,16 +203,6 @@
                 <li><a href="/calendar" class="forbidden">CALENDAR</a></li>
                 <li><a href="/community" >COMMUNITY</a></li>
             </ul>
-            
-            {% else %}
-            <a href="#" class="btn popup_open" pop_nm="login">LOGIN</a>
-            {% endif %}  
-             
-        </header>    
-        {% block layoutblock %}
-        {% endblock %}    
-
-       
         <footer>
             <p>
                 <strong>POPKORN</strong><br/>
