@@ -56,7 +56,7 @@
                 });
 
                 //로그아웃
-                $("a[href='#logout'").click(function(){
+                $("a[href='#logout'","a[href='#logout2'").click(function(){
                     $("ul[no='3']").hide();
                     if(confirm("Really want to leave?")){
                         $("#logout").submit();
@@ -74,9 +74,11 @@
                 });
 
                 $("#slide_open").click(function(){
+                    $(".bg").show();
                     $("ul[no='3']").show();
                 });
-                $("a[href='#slide_close']").click(function(){
+                $("a[href='#slide_close'],.bg").click(function(){
+                        $(".bg").hide();
                         $("ul[no='3']").hide();
                 });
                  
@@ -193,8 +195,8 @@
                     </P> 
                 </li>
                 <li>
-                    <a href="#logout_">LOGOUT</a>
-                    <form action="{% url 'logout'%}" method="post" id="logout_">
+                    <a href="#logout2">LOGOUT</a>
+                    <form action="{% url 'logout'%}" method="post" id="logout2">
                         {% csrf_token %}
                         <input type="hidden" name="red_path" class="red_path">
                     </form>
