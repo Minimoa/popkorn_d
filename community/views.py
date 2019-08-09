@@ -7,7 +7,7 @@ from .forms import CommunityCreate
 
 # Create your views here.
 def community(request):
-    posts = Posting.objects.all()
+    posts = Posting.objects.all().order_by('-id')
     paginator = Paginator(posts,10) 
     page = request.GET.get('page')
     page_posts = paginator.get_page(page)
