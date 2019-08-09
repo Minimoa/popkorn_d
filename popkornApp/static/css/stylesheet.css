@@ -826,7 +826,7 @@ header ul[no="1"] a:hover, .nav_active{
         background: #ffffff;
     }
     header a[pop_nm="login"]{
-        margin-top:30px;
+        margin-top:5px;
     }
     header ul[no="3"] li{
         display: block;
@@ -847,11 +847,14 @@ header ul[no="1"] a:hover, .nav_active{
         margin:auto;
     }
     .pop_up{
-        width:50%
+        width:80%
      }
      #index article:nth-child(3){
-         padding:50px 10px;
+         padding:50px 10px; 
+     }
+     #index article:nth-child(3) ul{
          width:80%;
+         display: block;
          margin:auto;
      }
 }
