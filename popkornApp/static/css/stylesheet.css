@@ -404,9 +404,9 @@ header ul[no="1"] a:hover, .nav_active{
     padding-left:50px; 
 } 
 /* 미디어 페이지 */
-#media{
-    height:500px;
-}
+#media,#community {
+    padding-bottom: 30px;
+} 
 #media .date{
     margin-top:-65px; 
 }
@@ -471,10 +471,7 @@ header ul[no="1"] a:hover, .nav_active{
     border: 1px solid black;
 }
 /*커뮤니티 페이지*/
-#community{
-    padding:20px; 
-    height:500px;
-}
+ 
 
 #community table{
     clear: right;
@@ -811,7 +808,10 @@ header ul[no="1"] a:hover, .nav_active{
 }
 
 /********************* 모바일 ***************************/
-@media(max-width:800px){    
+@media(max-width:800px){   
+    header,#index{
+        overflow-x:hidden;
+    }
     header ul{
         display:none;
     }

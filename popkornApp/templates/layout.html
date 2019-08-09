@@ -65,8 +65,12 @@
                 }
                 nav_active();
 
-
+                $(".forbidden").click(function(){
+                        alert("비공개된 메뉴입니다.");
+                        location.href=""; 
+                    });
                 // pc 일때  로그아웃 메뉴 팝업 
+                $("ul[no='3']").hide();
                 console.log(chk_device());
                 if(chk_device() == "pc"){
                     $("ul[no='3']").hide();
@@ -88,6 +92,8 @@
                     $("a[href='#slide_close']").click(function(){
                         $("ul[no='3']").hide();
                     });
+
+                   
                 } 
             });
              
@@ -165,7 +171,7 @@
                     </form>
                 </li>
                 <li>
-                    <a href="#">MESSAGE</a>
+                    <a href="#" class="forbidden">MESSAGE</a>
                 </li>
             </ul>
             <ul no="3"> 
@@ -177,7 +183,7 @@
                         <input type="hidden" name="red_path" class="red_path">
                     </form>
                 </li>
-                <li><a href="#">MESSAGE</a></li>
+                <li><a href="#" class="forbidden">MESSAGE</a></li>
                 <li><a href="/news" class="nav_active forbidden">NEWS</a></li>
                 <li><a href="/chart" class="forbidden" >CHART</a></li>
                 <li><a href="/mediaboard">MEDIA</a></li>
