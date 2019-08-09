@@ -26,8 +26,8 @@
         {%if page_posts %}
           {% for post in page_posts %}
             <tr path="/community/show/{{post.id}}"> 
-              <td>{{post.id}}</td>
-              <td>
+              <td >{{post.id}}</td>
+              <td ondragstart=return false >
                   {{post.title}}
                   {% if post.postingcomment_set.count != 0 %}
                   <i class="comm_cnt">{{post.postingcomment_set.count}}</i>

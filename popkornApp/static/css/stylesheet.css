@@ -255,6 +255,7 @@ header ul[no="1"] a:hover, .nav_active{
     width:80%;
     margin:auto;
     color:#464646;
+    text-overflow: ellipsis;
     font-family: 'Darker Grotesque', sans-serif;
 }
 .media-title p{
