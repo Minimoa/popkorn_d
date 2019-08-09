@@ -20,17 +20,21 @@
             $(function(){  
 
                 function chk_device(){ 
-                    var filter = "win16|win32|win64|macintel|mac|"; // PC일 경우 가능한 값
-                    if( navigator.platform){
-                        if( filter.indexOf(navigator.platform.toLowerCase())<0 ) device_value= "mobile"; //mobile
-                        else device_value= "pc"; //pc
+                    device_value = "mobile";
+                    if(navigator.platform){
+                        if(0 > filter.indexOf(navigator.platform.toLowerCase())){
+                            device_value= "mobile";
+                        }else{
+                            device_value= "pc";
+                        }
                     }
                     return device_value;
                 }
                 
 
+                var filter = "win16|win32|win64|mac";
 
- 
+  
                 var locate = location.pathname;  
                 $("input[name='red_path'").val(locate);
                 locate =locate.replace(/\//gi,"");
@@ -68,7 +72,7 @@
                 $(".forbidden").click(function(){
                         alert("비공개된 메뉴입니다.");
                         location.href=""; 
-                    });
+                });
                 // pc 일때  로그아웃 메뉴 팝업  
                 console.log(chk_device());
                 if(chk_device() == "pc"){
