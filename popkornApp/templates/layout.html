@@ -18,6 +18,18 @@
         
         <script>
             $(function(){  
+
+                function chk_device(){ 
+                    var filter = "win16|win32|win64|macintel|mac|"; // PC일 경우 가능한 값
+                    if( navigator.platform){
+                        if( filter.indexOf(navigator.platform.toLowerCase())<0 ) device_value= "mobile"; //mobile
+                        else device_value= "pc"; //pc
+                    }
+                    return device_value;
+                }
+                
+
+
  
                 var locate = location.pathname;  
                 $("input[name='red_path'").val(locate);
@@ -52,18 +64,30 @@
                 }
                 nav_active();
 
-                $("header>p").hover(function(){ 
-                    $("ul[no='2']").show();
-                },function(){
-                    $("ul[no='2']").show();
-                    $("ul[no='2']").hover(function(){
-                        $(this).show();
 
+                // pc 일때  로그아웃 메뉴 팝업 
+                console.log(chk_device());
+                if(chk_device() == "pc"){
+                    $("ul[no='3']").hide();
+                    $("header>p").hover(function(){ 
+                        $("ul[no='2']").show();
                     },function(){
-                        $(this).hide();
-                    })
-                });
-                
+                        $("ul[no='2']").show();
+                        $("ul[no='2']").hover(function(){
+                            $(this).show();
+
+                        },function(){
+                            $(this).hide();
+                        });
+                    });
+                }else{
+                    $("header>p").click(function(){
+                        $("ul[no='3']").show();
+                    });
+                    $("a[href='#slide_close']").click(function(){
+                        $("ul[no='3']").hide();
+                    });
+                } 
             });
              
         </script> 
@@ -124,13 +148,13 @@
                 <li><a href="/mediaboard">MEDIA</a></li>
                 <li><a href="/calendar">CALENDAR</a></li>
                 <li><a href="/community">COMMUNITY</a></li>
-            </ul>
+            </ul> 
             {% if user.is_authenticated %} 
             <P>
                 welcome &nbsp;&nbsp; 
                 <b>{{user.username}}</b>
                 <a href="#" class="msg_total">5</a>
-            </P>
+            </P> 
             <ul no="2"> 
                 <li>
                     <a href="#logout">LOGOUT</a>
@@ -142,10 +166,28 @@
                 <li>
                     <a href="#">MESSAGE</a>
                 </li>
-                {% else %}
-                <a href="#" class="btn popup_open" pop_nm="login">LOGIN</a>
-                {% endif %}
-            </div>
+            </ul>
+            <ul no="3"> 
+                <li><a href="#slide_close" class="right">X</a></li>
+                <li>
+                    <a href="#logout">LOGOUT</a>
+                    <form action="{% url 'logout'%}" method="post" id="logout">
+                        {% csrf_token %}
+                        <input type="hidden" name="red_path" class="red_path">
+                    </form>
+                </li>
+                <li><a href="#">MESSAGE</a></li>
+                <li><a href="/news" class="nav_active">NEWS</a></li>
+                <li><a href="/chart" >CHART</a></li>
+                <li><a href="/mediaboard">MEDIA</a></li>
+                <li><a href="/calendar">CALENDAR</a></li>
+                <li><a href="/community">COMMUNITY</a></li>
+            </ul>
+            
+            {% else %}
+            <a href="#" class="btn popup_open" pop_nm="login">LOGIN</a>
+            {% endif %}  
+             
         </header>    
         {% block layoutblock %}
         {% endblock %}    
