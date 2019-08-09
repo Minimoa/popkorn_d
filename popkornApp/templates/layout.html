@@ -56,10 +56,10 @@
                 });
 
                 //로그아웃
-                $("a[href='#logout']","a[href='#logout2']").click(function(){
+                $(".logout").click(function(){
                     $("ul[no='3']").hide();
                     if(confirm("Really want to leave?")){
-                        $("#logout").submit();
+                        $(".logout_form").submit();
                     }
                 });
 
@@ -73,13 +73,20 @@
                     alert("비공개된 메뉴입니다."); 
                 });
 
-                $("#slide_open").click(function(){
-                    $(".bg").show();
-                    $("ul[no='3']").show();
+                $("#slide_open").click(function(){ 
+                    $("ul[no='3']").show().animate({
+                        left:"0",
+                        width:"90%"
+                    },1000,function(){
+
+                    });
                 });
-                $("a[href='#slide_close'],.bg").click(function(){
-                        $(".bg").hide();
-                        $("ul[no='3']").hide();
+                $("a[href='#slide_close']").click(function(){  
+                        $("ul[no='3']").animate({
+                        left:"400",  
+                    },1000,function(){
+                        $(this).hide()
+                    });
                 });
                  
                 // pc 일때  로그아웃 메뉴 팝업    
@@ -163,9 +170,9 @@
                 <a href="#" class="msg_total">5</a>
             </P> 
             <ul no="2"> 
-                <li>
-                    <a href="#logout">LOGOUT</a>
-                    <form action="{% url 'logout'%}" method="post" id="logout">
+                <li> 
+                    <a href="#logout" class="logout">LOGOUT</a>
+                    <form action="{% url 'logout'%}" method="post" class="logout_form">
                         {% csrf_token %}
                         <input type="hidden" name="red_path" class="red_path">
                     </form>
@@ -184,8 +191,7 @@
         {% block layoutblock %}
         {% endblock %}    
 
-         <ul no="3"> 
-                <li><a href="#slide_close" class="right">X</a></li>
+         <ul no="3">  
                 {% if user.is_authenticated %} 
                 <li>
                     <P>
@@ -193,10 +199,11 @@
                         <b>{{user.username}}</b>
                         <a href="#" class="msg_total">5</a>
                     </P> 
+                    <a href="#slide_close" class="right">X</a>
                 </li>
                 <li>
-                    <a href="#logout2">LOGOUT</a>
-                    <form action="{% url 'logout'%}" method="post" id="logout2">
+                    <a href="#logout" class="logout">LOGOUT</a>
+                    <form action="{% url 'logout'%}" method="post" class="logout_form">
                         {% csrf_token %}
                         <input type="hidden" name="red_path" class="red_path">
                     </form>

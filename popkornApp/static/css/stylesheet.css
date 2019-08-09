@@ -855,22 +855,21 @@ header ul[no="1"] a:hover, .nav_active{
     ul[no="3"]{ 
         width:40%;
         padding:10px 50px 0px 0px;
-        position: absolute;
+        position: fixed;
         top:30px;
         right:0; 
-        height:200%;
+        height:100%;
         z-index: 1002;
-        background: #ffffff;
+        background: #fff; 
     }
     ul[no="3"] li{
         display: block;
         width:100%;
         padding:15px;
-        border-bottom: 1px solid #eeeeee;
-        background: #ffffff;
+        border-bottom: 1px solid #eeeeee; 
     } 
     ul[no="3"] li .right{
-        margin-top:-10px;
+        margin-top:-40px;
     } 
     .pop_up{
         width:80%;
