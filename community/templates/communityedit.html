@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+{% block layoutblock %}
+<section class="comm_write">
+    <h1>Posting</h1> 
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.media }}
+        {{ form.as_p }}
+        <input type="submit" class="btn purple" value="EDIT"/>
+    </form> 
+</section>
+{%endblock%}

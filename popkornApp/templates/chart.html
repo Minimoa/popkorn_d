@@ -1,0 +1,75 @@
+{% extends 'layout.html' %}
+{% block layoutblock %}
+
+
+<script>
+    
+    $(window).load(function(){ 
+        $("img").hide();
+    });
+
+    $(function(){
+        $("#chart").on('mousewheel',function(e){
+        var wheelDelta = e.originalEvent.wheelDelta;
+        if(wheelDelta > 0){
+            console.log("up");
+            $(this).scrollLeft(-wheelDelta + $(this).scrollLeft());
+        }else{
+        console.log("down");
+            $(this).scrollLeft(-wheelDelta + $(this).scrollLeft());
+        }
+        });
+  
+    });
+</script>
+
+<section id="chart">
+    <img src="../static/img/loader.gif"> 
+    <div class="a_wrap">
+        <a href="https://www.melon.com/">MELON</a>
+        <a href="https://www.genie.co.kr/">GINI</a>
+        <a href="https://music.bugs.co.kr/">BUKS</a>
+        <a href="http://www.mnet.com/chart/TOP100/">MNET</a>
+    </div>
+    <div class="ifr_wrap"> 
+        <iframe src="/melon" width="400px" frameborder="0" ></iframe>
+        <iframe src="/gini"  width="400px" frameborder="0"></iframe> 
+        <iframe src="/buks"  width="400px" frameborder="0"></iframe>
+        <iframe src="/mnet"  width="500px" frameborder="0"></iframe>
+    </div> 
+    <!--
+    <div style="pointer-events: none;">
+    
+        <table>
+            <tr>
+                <td>
+                    <iframe src="/melon" width="400px" height="1030px" frameborder="0" scrolling="no"></iframe>
+                </td>
+
+                
+                <td>
+                    <iframe src="/gini" width="400px" height="1030px" frameborder="0" scrolling="no"></iframe>
+                </td>
+
+
+            </tr>
+
+            <tr>
+                <td>
+                    <iframe src="/buks" width="400px" height="1030px" frameborder="0" scrolling="no"></iframe>
+                </td>
+    
+                    
+                <td>
+                    <iframe src="/mnet" width="400px" height="1030px" frameborder="0" scrolling="no"></iframe>                 
+                </td>
+    
+    
+            </tr>
+        </table>
+
+       
+    </div> 
+            -->
+</section>
+{%endblock%}
