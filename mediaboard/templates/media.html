@@ -26,6 +26,7 @@
         {% if user.is_authenticated %} 
         <a class="btn purple right popup_open" pop_nm="media_write">WRITE</a>
         {%endif%}
+        {% if page_posts %}
         {% for m in page_posts%}
         <article>
             <div class="media-title">
@@ -46,7 +47,11 @@
             </iframe>
         </article> 
         {%endfor%}
-
+        {%else%}
+        <article>
+                NO DATA
+        </article>
+        {%endif%}
         <div class="pop_up" pop_nm="media_write">
                 <div class="pop_up_h">
                         <a href="#" class="close">x</a> 

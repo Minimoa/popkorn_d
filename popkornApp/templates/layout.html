@@ -4,7 +4,7 @@
 <html lang="kor">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
         <!--<meta http-equiv="X-UA-Compatible" content="ie=edge">   -->
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
         <!-- 1. Link to jQuery (1.8 or later), -->
@@ -178,11 +178,11 @@
                     </form>
                 </li>
                 <li><a href="#">MESSAGE</a></li>
-                <li><a href="/news" class="nav_active">NEWS</a></li>
-                <li><a href="/chart" >CHART</a></li>
+                <li><a href="/news" class="nav_active forbidden">NEWS</a></li>
+                <li><a href="/chart" class="forbidden" >CHART</a></li>
                 <li><a href="/mediaboard">MEDIA</a></li>
-                <li><a href="/calendar">CALENDAR</a></li>
-                <li><a href="/community">COMMUNITY</a></li>
+                <li><a href="/calendar" class="forbidden">CALENDAR</a></li>
+                <li><a href="/community" >COMMUNITY</a></li>
             </ul>
             
             {% else %}
