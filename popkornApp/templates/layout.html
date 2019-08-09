@@ -171,8 +171,8 @@
             <ul no="3"> 
                 <li><a href="#slide_close" class="right">X</a></li>
                 <li>
-                    <a href="#logout">LOGOUT</a>
-                    <form action="{% url 'logout'%}" method="post" id="logout">
+                    <a href="#logout_">LOGOUT</a>
+                    <form action="{% url 'logout'%}" method="post" id="logout_">
                         {% csrf_token %}
                         <input type="hidden" name="red_path" class="red_path">
                     </form>

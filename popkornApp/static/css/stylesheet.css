@@ -301,7 +301,7 @@ header ul[no="1"] a:hover, .nav_active{
 #index{
     padding:0px;
 }
-#index article{
+#index article:nth-child(n+2){
     display: block;
     border-bottom: 1px solid var(--basic-br-color);  
     
@@ -364,6 +364,10 @@ header ul[no="1"] a:hover, .nav_active{
     display:grid;
     grid-template-columns: 1fr 1fr; 
 } 
+
+#index article:nth-child(2) iframe{
+    width:100%;
+}
  
 #index ul{
     display:block;
@@ -826,7 +830,7 @@ header ul[no="1"] a:hover, .nav_active{
         background: #ffffff;
     }
     header a[pop_nm="login"]{
-        margin-top:5px;
+        margin-top:-5px;
     }
     header ul[no="3"] li{
         display: block;
@@ -837,17 +841,37 @@ header ul[no="1"] a:hover, .nav_active{
     } 
     header ul[no="3"] li .right{
         margin-top:-10px;
-    }
-    #index article p{
-        width:80%;
-    }
-    #index article div{
-        display: inline-block;
-        width:80%;
-        margin:auto;
-    }
+    } 
     .pop_up{
-        width:80%
+        width:80%;
+        margin:auto; 
+        position: absolute;
+        top:5%;
+        left:7%;
+     }
+     #index article:nth-child(2){
+         display: block;
+         padding:0px;
+     }
+     #index article:nth-child(2) div{
+         display: block;
+         width:100%;
+         padding:0px;
+         margin:0px; 
+         text-indent: 10px;
+     }
+     #index article:nth-child(2) div .fotorama{
+         width:90%;
+         margin:auto;
+     }
+     #index article:nth-child(2) div:nth-child(2){
+         margin-left:-45px; 
+
+     } 
+     #index article:nth-child(2) div:nth-child(2) iframe{
+         width:90%;
+         margin:auto;
+         display: block;
      }
      #index article:nth-child(3){
          padding:50px 10px; 
@@ -855,6 +879,5 @@ header ul[no="1"] a:hover, .nav_active{
      #index article:nth-child(3) ul{
          width:80%;
          display: block;
-         margin:auto;
      }
 }
